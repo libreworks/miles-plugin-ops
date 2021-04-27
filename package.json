@@ -1,0 +1,43 @@
+{
+  "name": "miles-plugin-ops",
+  "version": "0.1.0",
+  "description": "An operations plugin for administrators of the Miles URL Monitor",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "mocha --async-only --recursive --timeout 5000 test test",
+    "prettier": "prettier --write .",
+    "prettier-ci": "prettier --list-different .",
+    "cover": "nyc --reporter=lcov --reporter=text-summary npm test",
+    "coveralls": "nyc --reporter=text-lcov npm test | coveralls"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/libreworks/miles-plugin-ops.git"
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "keywords": [
+    "miles"
+  ],
+  "contributors": [
+    {
+      "name": "LibreWorks Contributors",
+      "homepage": "https://github.com/libreworks/miles-plugin-ops/contributors"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/libreworks/miles-plugin-ops/issues"
+  },
+  "homepage": "https://github.com/libreworks/miles-plugin-ops",
+  "devDependencies": {
+    "coveralls": "^3.0.3",
+    "eslint": "^2.13.1",
+    "mocha": "^3.2.0",
+    "nyc": "^13.3.0",
+    "prettier": "2.2.1",
+    "sinon": "^10.0.0"
+  }
+}
