@@ -1,10 +1,11 @@
 class OpsPlugin {
-  constructor() {
-  }
+  constructor() {}
 
   async init(miles) {
     this.miles = miles;
   }
+
+  addCommands(program) {}
 }
 
 OpsPlugin.MILES_PLUGIN_API = 1;
