@@ -33,6 +33,7 @@
   },
   "homepage": "https://github.com/libreworks/miles-plugin-ops",
   "devDependencies": {
+    "commander": "^7.2.0",
     "coveralls": "^3.0.3",
     "eslint": "^2.13.1",
     "mocha": "^3.2.0",
