@@ -29,17 +29,10 @@ describe("ParamCommand", () => {
       });
     });
   });
-  describe("#addCommands", () => {
+  describe("#createCommand", () => {
     it("should register things", async () => {
       const obj = new ParamCommand({ miles: {} });
-      const program = new Command();
-      obj.addCommands(program);
-      const help = new Help();
-      const commands = help.visibleCommands(program);
-      assert.ok(Array.isArray(commands));
-      const [paramCommand] = commands.filter(
-        (command) => command.name() === "param"
-      );
+      const paramCommand = obj.createCommand();
       assert.ok(paramCommand);
       assert.strictEqual(
         paramCommand.description(),
@@ -47,14 +40,14 @@ describe("ParamCommand", () => {
       );
       const subHelp = new Help();
       const subCommands = subHelp.visibleCommands(paramCommand);
-      assert.ok(Array.isArray(commands));
+      assert.ok(Array.isArray(subCommands));
       const [getCommand] = subCommands.filter(
         (command) => command.name() === "get"
       );
       assert.ok(getCommand);
       assert.strictEqual(
         getCommand.description(),
-        "Gets the current value of a Miles deployment parameter."
+        "Gets the value of a Miles deployment parameter."
       );
       const [setCommand] = subCommands.filter(
         (command) => command.name() === "set"

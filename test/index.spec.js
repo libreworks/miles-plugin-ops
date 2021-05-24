@@ -21,7 +21,9 @@ describe("OpsPlugin", () => {
   });
   describe("#addCommands", () => {
     it("should call Commander methods", async () => {
+      const miles = { input: {} };
       const obj = new OpsPlugin();
+      await obj.init(miles);
       const program = new Command();
       obj.addCommands(program);
       const help = new Help();

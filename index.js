@@ -1,4 +1,6 @@
 const DeployCommand = require("./lib/commands/deploy.js");
+const ParamCommand = require("./lib/commands/param.js");
+const SetupCommand = require("./lib/commands/setup.js");
 const StatusCommand = require("./lib/commands/status.js");
 
 /**
@@ -26,10 +28,10 @@ class OpsPlugin {
     let opsNestedCommand = program
       .command("ops")
       .description("Control a Miles deployment.");
-    const commands = [DeployCommand, StatusCommand];
+    const commands = [DeployCommand, ParamCommand, SetupCommand, StatusCommand];
     commands
       .map((clz) => new clz(this))
-      .forEach((cmd) => cmd.addCommands(opsNestedCommand));
+      .forEach((cmd) => opsNestedCommand.addCommand(cmd.createCommand()));
   }
 }
 

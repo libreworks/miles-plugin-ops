@@ -20,17 +20,10 @@ describe("StatusCommand", () => {
       });
     });
   });
-  describe("#addCommands", () => {
+  describe("#createCommand", () => {
     it("should register things", async () => {
       const obj = new StatusCommand({ miles: {} });
-      const program = new Command();
-      obj.addCommands(program);
-      const help = new Help();
-      const commands = help.visibleCommands(program);
-      assert.ok(Array.isArray(commands));
-      const [statusCommand] = commands.filter(
-        (command) => command.name() === "status"
-      );
+      const statusCommand = obj.createCommand();
       assert.ok(statusCommand);
       assert.strictEqual(
         statusCommand.description(),

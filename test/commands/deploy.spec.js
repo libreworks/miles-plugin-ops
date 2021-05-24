@@ -38,17 +38,10 @@ describe("DeployCommand", () => {
       });
     });
   });
-  describe("#addCommands", () => {
+  describe("#createCommand", () => {
     it("should register things", async () => {
       const obj = new DeployCommand({ miles: {} });
-      const program = new Command();
-      obj.addCommands(program);
-      const help = new Help();
-      const commands = help.visibleCommands(program);
-      assert.ok(Array.isArray(commands));
-      const [deployCommand] = commands.filter(
-        (command) => command.name() === "deploy"
-      );
+      const deployCommand = obj.createCommand();
       assert.ok(deployCommand);
       assert.strictEqual(
         deployCommand.description(),
@@ -56,7 +49,6 @@ describe("DeployCommand", () => {
       );
       const subHelp = new Help();
       const subCommands = subHelp.visibleCommands(deployCommand);
-      assert.ok(Array.isArray(commands));
       const [installCommand] = subCommands.filter(
         (command) => command.name() === "install"
       );
