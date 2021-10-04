@@ -3,14 +3,6 @@ const { Command, Help } = require("commander");
 const StatusCommand = require("../../lib/commands/status");
 
 describe("StatusCommand", () => {
-  describe("#constructor", () => {
-    it("should have the miles property", async () => {
-      const miles = {};
-      const opsPlugin = { miles };
-      const object = new StatusCommand(opsPlugin);
-      assert.strictEqual(object.miles, miles);
-    });
-  });
   describe("#run", () => {
     const object = new StatusCommand({ miles: {} });
     it("should throw", async () => {

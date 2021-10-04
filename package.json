@@ -16,10 +16,11 @@
     "url": "https://github.com/libreworks/miles-plugin-ops.git"
   },
   "engines": {
-    "node": ">=8"
+    "node": ">=10.13.0"
   },
   "keywords": [
-    "miles"
+    "miles",
+    "miles-plugin"
   ],
   "contributors": [
     {
