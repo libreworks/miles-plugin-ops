@@ -3,14 +3,6 @@ const { Help, Command } = require("commander");
 const ParamCommand = require("../../lib/commands/param");
 
 describe("ParamCommand", () => {
-  describe("#constructor", () => {
-    it("should have the miles property", async () => {
-      const miles = {};
-      const opsPlugin = { miles };
-      const object = new ParamCommand(opsPlugin);
-      assert.strictEqual(object.miles, miles);
-    });
-  });
   describe("#get", () => {
     it("should throw", async () => {
       const object = new ParamCommand({ miles: {} });

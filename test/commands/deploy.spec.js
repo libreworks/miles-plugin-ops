@@ -3,17 +3,9 @@ const { Help, Command } = require("commander");
 const DeployCommand = require("../../lib/commands/deploy");
 
 describe("DeployCommand", () => {
-  describe("#constructor", () => {
-    it("should have the miles property", async () => {
-      const miles = {};
-      const opsPlugin = { miles };
-      const object = new DeployCommand(opsPlugin);
-      assert.strictEqual(object.miles, miles);
-    });
-  });
   describe("#install", () => {
     it("should throw", async () => {
-      const object = new DeployCommand({ miles: {} });
+      const object = new DeployCommand();
       assert.throws(() => object.install(), {
         name: "Error",
         message: "This command has not been implemented yet.",
@@ -22,7 +14,7 @@ describe("DeployCommand", () => {
   });
   describe("#upgrade", () => {
     it("should throw", async () => {
-      const object = new DeployCommand({ miles: {} });
+      const object = new DeployCommand();
       assert.throws(() => object.upgrade(), {
         name: "Error",
         message: "This command has not been implemented yet.",

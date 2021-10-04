@@ -4,14 +4,6 @@ const { Command, Help } = require("commander");
 const SetupCommand = require("../../lib/commands/setup");
 
 describe("SetupCommand", () => {
-  describe("#constructor", () => {
-    it("should have the miles property", async () => {
-      const miles = { input: {} };
-      const opsPlugin = { miles };
-      const object = new SetupCommand(opsPlugin);
-      assert.strictEqual(object.input, miles.input);
-    });
-  });
   describe("#run", () => {
     it("should run successfully", async () => {
       const input = {
@@ -21,7 +13,13 @@ describe("SetupCommand", () => {
       inputStub.callsFake(async (options, key, message, validator) => {
         return validator(options[key]);
       });
-      const object = new SetupCommand({ miles: { input } });
+      const configService = {
+        set: () => {},
+      };
+      const secretService = {
+        set: () => {},
+      };
+      const object = new SetupCommand(input, configService, secretService);
       const options = {
         awsAccountId: "1234-1234-1234",
         regionCode: "us-east-1",
@@ -44,7 +42,13 @@ describe("SetupCommand", () => {
       inputStub.callsFake(async (options, key, message, validator) => {
         return validator(options[key]);
       });
-      const object = new SetupCommand({ miles: { input } });
+      const configService = {
+        set: () => {},
+      };
+      const secretService = {
+        set: () => {},
+      };
+      const object = new SetupCommand(input, configService, secretService);
       const options = {
         awsAccountId: "123-123-123",
         regionCode: "us-east-1",
@@ -69,7 +73,13 @@ describe("SetupCommand", () => {
       inputStub.callsFake(async (options, key, message, validator) => {
         return validator(options[key]);
       });
-      const object = new SetupCommand({ miles: { input } });
+      const configService = {
+        set: () => {},
+      };
+      const secretService = {
+        set: () => {},
+      };
+      const object = new SetupCommand(input, configService, secretService);
       const options = {
         awsAccountId: "1234-1234-1234",
         regionCode: "us-foo-bar",
@@ -94,7 +104,13 @@ describe("SetupCommand", () => {
       inputStub.callsFake(async (options, key, message, validator) => {
         return validator(options[key]);
       });
-      const object = new SetupCommand({ miles: { input } });
+      const configService = {
+        set: () => {},
+      };
+      const secretService = {
+        set: () => {},
+      };
+      const object = new SetupCommand(input, configService, secretService);
       const options = {
         awsAccountId: "1234-1234-1234",
         regionCode: "us-west-2",
@@ -119,7 +135,13 @@ describe("SetupCommand", () => {
       inputStub.callsFake(async (options, key, message, validator) => {
         return validator(options[key]);
       });
-      const object = new SetupCommand({ miles: { input } });
+      const configService = {
+        set: () => {},
+      };
+      const secretService = {
+        set: () => {},
+      };
+      const object = new SetupCommand(input, configService, secretService);
       const options = {
         awsAccountId: "1234-1234-1234",
         regionCode: "us-west-2",
